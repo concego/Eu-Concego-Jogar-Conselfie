@@ -11,7 +11,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build with Gradle
-        run: gradle assembleDebug
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assembleDebug --stacktrace
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
