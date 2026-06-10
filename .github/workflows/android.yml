@@ -10,4 +10,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - run: echo "Java Setup worked"
+      - name: Build with Gradle
+        run: gradle assembleDebug
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: conselfie-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
